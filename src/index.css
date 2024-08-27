@@ -1,0 +1,242 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+ 
+}
+body,#root{
+  min-width: 320px;
+  max-width: 100%;
+  background-color: aliceblue;
+}
+
+.hideClass{
+  display: none;
+}
+.showClass{
+  display: block;
+}
+
+#hide{
+  display: none;
+}
+#show{
+  display: block;
+}
+
+.title{
+  top: 0;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 10px;
+  background-image: linear-gradient(to right, hsla(120, 61%, 47%, 0.791), rgba(0, 0, 0, 0.458));
+  color: rgba(251, 251, 165, 0.759);
+  background-color: azure;
+  z-index: 2;
+}
+.link{
+  display: grid;
+  grid-template-columns: 10fr 1fr 1fr 1fr;
+  padding: 5px;
+  top: 50px;
+  gap: 5px;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 2;
+
+}
+.link a{
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  list-style: none;
+  text-decoration: none;
+  background-color: rgba(183, 186, 186, 0.055);
+  color: rgba(0, 0, 0, 0.475);
+}
+.container-post{
+  position: relative;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+ max-width: 100%;
+ min-width: 300px;
+  justify-content: space-evenly;
+  grid-template-areas: 
+  " post1    post2"
+  " post3    post3"
+  " post4   post4";
+  min-height: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.307);
+  box-shadow: 0 0 15px solid hsla(0, 0%, 0%, 0.942);
+  
+  background-color: #ffffffdd;
+ 
+
+  
+
+  
+}
+.post1{
+  grid-area:post1;
+  display: flex;
+  justify-self:start;
+  min-height: 50px;
+  border: none;
+  background-color:rgba(255, 255, 255, 0.066);
+  border-radius: 10px;
+  margin:0px 10px  0px 20px  ;
+  min-height: 50px;
+  float: left;
+  color: #000000aa;
+  
+
+}
+  .post2{
+    grid-area: post2;
+    justify-self:end;
+    min-height: 50px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.066);
+    border-radius: 10px;
+    margin:0px 10px  0px 20px  ;
+
+  }
+    .post4{
+      grid-area: post4;
+      display: grid;
+      grid-template-columns:50px 100px 50px 30fr;
+      border: 0.3px solid rgba(0, 0, 0, 0.051);
+      padding: 10px;
+      
+
+    }
+    .post-comment1, .post-comment2, .post-comment3
+      {
+      background-color: #e4e3e329;
+      border-radius: 10px;
+      text-align: center;
+      align-items: center;
+      padding: 7px ;
+      width: fit-content;
+      height: fit-content;
+      color:rgba(0, 0, 0, 0.4)
+    }
+    .post-comment1 .post-comment2 .post-comment3:hover{
+      background-color: greenyellow;
+      margin-left:2px ;
+    }
+    .post-delete{
+      justify-self: end;
+    }
+     
+.post3{
+ grid-area:post3;
+  background-color:rgba(255, 255, 255, 0.066);
+  min-height: 50px;
+  border-radius: 1px;
+ 
+  text-align: center;
+  align-content: center;
+  border-radius: 5px;
+  
+}
+.empty{
+  height: 100px;
+  width: 100%;
+}
+.post{
+  margin-top: 200px;
+}
+
+ .login{
+  font-size: 50px;
+  color: green;
+  background-color: aliceblue;
+  text-align: center;
+  align-content: center;
+  margin-top: 200px;
+ } 
+.login2{
+  font-size: 25px;
+}
+.name{
+  text-align: center;
+  align-items: center;
+  background-color: transparent;
+  justify-content:center ;
+  color: green;
+  backdrop-filter: blur(3px);
+  width: 300px;
+  height: 300px;
+  border: none;
+  border: 1px solid rgba(145, 188, 145, 0.776);
+  border-radius: 10px;
+  padding-top: 50px;
+  position: absolute;
+  margin-top: 100px;
+  
+  
+}
+.name2{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  
+  
+}
+.username{
+  padding: 5px;
+  color: green;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.306);
+  outline: none;
+  border: none;
+}
+.password{
+  padding: 5px;
+  color: green;
+  font-size: 1rem;
+  margin-top: 2px;
+  background-color: rgba(255, 255, 255, 0.306);
+  outline: none;
+  border: none;
+}
+.button{
+  background-color: rgba(0, 128, 0, 0.669);
+  padding: 5px;
+  color:white;
+  margin-top: 30px;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+}
+.sign:hover{
+  color:rgba(0, 128, 0, 0.439) ; 
+}
+.button:hover{
+  background-color:rgba(0, 128, 0, 0.439) ;
+  padding: 6px;
+}
+.chat2{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  
+}
+
+.chat{
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: blanchedalmond;
+  text-align: center;
+  align-content: center;
+  margin: 5px;
+  color: green;
+}
