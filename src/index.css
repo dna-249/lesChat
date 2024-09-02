@@ -7,6 +7,15 @@ body,#root{
   min-width: 320px;
   max-width: 100%;
   background-color: aliceblue;
+  min-height: 500px;
+  max-height: 100%;
+}
+
+.hideClass1{
+  display: none;
+}
+.showClass1{
+  display: block;
 }
 
 .hideClass{
@@ -28,11 +37,11 @@ body,#root{
   display: flex;
   position: fixed;
   width: 100%;
-  height: 10%;
+  height: 60px;
   font-weight: bold;
   font-size: 2rem;
   padding: 10px;
-  background-image: linear-gradient(to right, hsla(120, 61%, 47%, 0.791), rgba(0, 0, 0, 0.458));
+  background-image: linear-gradient(to right, hsla(127, 95%, 37%, 0.987), rgba(0, 0, 0, 0.458));
   color: rgba(251, 251, 165, 0.759);
   background-color: azure;
   z-index: 2;
@@ -63,7 +72,7 @@ body,#root{
   display:grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto;
- max-width: 100%;
+ max-width: 1000px;
  min-width: 300px;
   justify-content: space-evenly;
   grid-template-areas: 
@@ -73,10 +82,10 @@ body,#root{
   min-height: 100px;
   border: 1px solid rgba(0, 0, 0, 0.307);
   box-shadow: 0 0 15px solid hsla(0, 0%, 0%, 0.942);
-  
   background-color: #ffffffdd;
- 
-
+  
+  font-size: 0.8rem;
+  
   
 
   
@@ -140,9 +149,15 @@ body,#root{
   min-height: 50px;
   border-radius: 1px;
  
-  text-align: center;
-  align-content: center;
+  justify-content: center;
   border-radius: 5px;
+  
+  width: 100%;
+  overflow-wrap:break-word ;
+  padding: 5px;
+  
+ 
+
   
 }
 .empty{

@@ -1,10 +1,12 @@
 import { createContext } from "react";
 import { useState,useEffect } from "react";
+import usePost from "../components/usePost";
+import useSwitch from "../components/useSwitch";
 
   const DataContext = createContext({});
   export const DataProvider = ({children})=>{
 
-
+const {setShow2,setHide2,handleUse} = useSwitch
 
     const getData2 = (nura) => {
       const data2 = JSON.parse(localStorage.getItem(nura));
@@ -31,7 +33,8 @@ import { useState,useEffect } from "react";
     const handlePassword = () => {
       
                       setNewPassword(newPassword =>[...newPassword,{user,password}])
-                      handelUser();
+                      handleUser()         
+                      
        
                      }
    
@@ -40,28 +43,11 @@ import { useState,useEffect } from "react";
      let user = user2;
      
                      setNewPassword2(newPassword2 =>[ ...newPassword2,{user,password}])
-                     handelUser();
+             handleUser()       
                    }
    
-    const handleChange = () => {
-      if(change){
-       setShow('show'),setHide('hide')
-      }else{
-       setShow('hide'),setHide('show')
-      }
-      handelUser();
-    }
-    
-    const handelUser = () => {
-       
-    if((localStorage.getItem('password2')).includes(password) && 
-    (localStorage.getItem('password2')).includes(user)) { alert('you are welcome!')
-     setShow('hide'),setHide('hide')
-   } else{ alert(' you have not opened account yet!'),
-     setHide('show'),setShow('hide');}
     
     
-   }
     useEffect(()=>{
     localStorage.setItem('password',JSON.stringify(newPassword)); 
     localStorage.setItem('password2',JSON.stringify(newPassword2))
@@ -81,7 +67,7 @@ import { useState,useEffect } from "react";
     // main section
     const getData = () => {
         const data = JSON.parse(localStorage.getItem('data'));
-        if(data){ return data} else { return ['nura']}
+        if(data){ return data} else { return []}
       }
       
       
@@ -93,13 +79,18 @@ import { useState,useEffect } from "react";
      }
      
       function handlePost(){
+        handleSetPost();
         if(post){
-          setPosts([...posts,post]);
+          setPosts([post,...posts]);
+          
       }else{
         setPost('');
       }
-      handelNewPost(post);
+      handelNewPost(post);handleSetPost();
      }
+     const handleSetPost = () => {
+      setPost('');
+    }
      const [newPost,setNewPost] =useState('');
      const handelNewPost = (newPost) => {
        setNewPost(()=>
@@ -108,6 +99,16 @@ import { useState,useEffect } from "react";
          </div>
        )
      }
+     const handleUser = () => {
+   
+      if((localStorage.getItem('password2')).includes(password) && 
+      (localStorage.getItem('password2')).includes(user))
+      {
+       setShow2('showClass'),setHide2('showClass'),alert(user + password+''+'is available')
+      } else {
+        alert(user +''+password+ 'is not available')
+     } 
+    }
       
       const handleDelete = (index) => {
             setPosts(posts.filter((_,i)=> i !== index));
@@ -119,15 +120,15 @@ import { useState,useEffect } from "react";
        // to store data
        useEffect(()=>{
            localStorage.setItem('data',JSON.stringify(posts));
-      },[]);
+      },[posts]);
     return(
 
         <DataContext.Provider value={{
             posts, setPosts, handleDelete, handlePost,handlePost2,
             user,user2, setUser,setUser2,password,
-            password2,setPassword2,show,hide,
+            password2,setPassword2,show,hide,setShow,
             setNewPassword2,newPassword2,newPassword,
-            setNewPassword,setPassword,handleChange,handlePassword,
+            setNewPassword,setPassword,handlePassword,post,
             handlePassword2,handleChange2,value,handleValue,newPost,
         }}>
             {children}
