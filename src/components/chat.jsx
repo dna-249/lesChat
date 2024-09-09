@@ -17,7 +17,8 @@ const Chat = () => {
   return (
     <>
     <div className='name2'>
-      <div className='name'><div>{value} {user3}:here</div>
+      <div className='name'><h3 className='name2'>Friends</h3>
+       <div>{value} {user3}</div>
         {data3?.map((pass2,ind2) =>
          <div className='chat2' key={ind2}> 
          <h3 className='chat'  >

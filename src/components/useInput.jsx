@@ -19,7 +19,13 @@ setNewValue(newValue =>[...newValue,{user,password}]);
 }
 useEffect(()=>{ 
     localStorage.setItem(store,JSON.stringify(newValue)),getData(store)
-    },[newValue])
+    return()=>{
+      console.log( 'clean'
+      );
+      
+    } 
+  },
+    [newValue])
 
   return [newValue,setNewValue,handleNewValue];
 }

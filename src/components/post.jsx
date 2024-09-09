@@ -10,12 +10,30 @@ export const Post = () => {
       <>
         <div className="main">
           <div className="empty"> </div>
-         <div> <textarea value={post} className='username' type="text"  placeholder='write your post...' cols={100} rows={10} onChange={(e) =>handlePost2(e)} />
-          <button className="button" onClick={handlePost}>post</button></div>
+         <div> <textarea  style={{outline:'none',
+                                 
+                                }}  className='post3' type="text"  placeholder='write your post...' cols={100} rows={5} onChange={(e) =>handlePost2(e)} />
+          <button     className="button post-delete" onClick={handlePost}>post</button></div>
+          <div style ={{ backgroundColor:'lightgreen',
+                        color:'whitesmoke',
+                        padding:'5px',
+                        marginTop:'10px',
+                        border:'2px solid azure'
+          }}className="name2"> Previous Post</div>
              {posts?.map((post,index)=>
-              <div className="container-post"  style={{display:''}}key={index}>
-               <div className="post3" onClick={()=>handleDelete(index)} > <button className="" >delete </button>
-                     {newPost}        {post}</div>
+
+
+              <div style={{height:'fit-content',
+                backgroundColor:'aliceblue'
+               }}  className="post3"  key={index}>
+
+
+               <div  style={{height:'fit-content',
+                            padding:'2px',
+                            backgroundColor:'aliceblue'
+               }}className="post3" onClick={()=>handleDelete(index)} > {post} 
+               <button className="" >delete </button>
+                            </div>
                 </div>)}
            </div>
    </> )

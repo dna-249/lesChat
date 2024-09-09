@@ -76,7 +76,7 @@ import useControl from "../components/useControl";
      
       function handlePost(){
         if(post){
-          setPosts([...posts,post]);
+          setPosts([...posts,post]);setPost('')
       }else{
         setPost('');
       }

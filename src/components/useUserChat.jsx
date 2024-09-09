@@ -36,13 +36,13 @@ const handleUserChat = () => {
         
     </div>
     <div>
-         <input type="text"  onChange={(e)=>setUserChat(e.target.value)}/> 
+         <input type="text" className='username'placeholder='write...' onChange={(e)=>setUserChat(e.target.value)}/> 
                  <button onClick={handleUserChat}> userPost </button>
 
    </div>
     
      <div>
-    <input type="text"  onChange={(e)=>setFriendChat(e.target.value)}/>
+    <input type="text" className='username'  placeholder='write...' onChange={(e)=>setFriendChat(e.target.value)}/>
     <button onClick={handleFriendChat}> friendPost</button>
         
     </div>
