@@ -6,10 +6,10 @@ export const Header = () => {
         <div className="title">lesChat!</div>
         
         <div className="link">
-            <Link to='/'> Search...</Link>
+            <Link to='/'> lesChart!</Link>
             <Link to='/post'>Posts</Link>
-            <Link to='/friend'>Friends</Link>
-            <Link to='/chat'>invites</Link>
+            <Link to='/friend'>LogIn</Link>
+            <Link to='/chat'>Friends</Link>
         </div>
              
     

@@ -1,20 +1,17 @@
 import { createContext } from "react";
 import { useState,useEffect } from "react";
-import usePost from "../components/usePost";
-import useSwitch from "../components/useSwitch";
+import useControl from "../components/useControl";
 
   const DataContext = createContext({});
   export const DataProvider = ({children})=>{
+  const {handelUser,} = useControl('');
 
-const {setShow2,setHide2,handleUse} = useSwitch
 
     const getData2 = (nura) => {
       const data2 = JSON.parse(localStorage.getItem(nura));
         if(data2) {return data2} else {return [] };
      }
 
-    const [show, setShow]= useState('show');
-    const [hide, setHide]= useState('hide');
     const [change, setChange]= useState(false);
    
     const [user,setUser] = useState('');
@@ -33,8 +30,7 @@ const {setShow2,setHide2,handleUse} = useSwitch
     const handlePassword = () => {
       
                       setNewPassword(newPassword =>[...newPassword,{user,password}])
-                      handleUser()         
-                      
+                      handelUser();
        
                      }
    
@@ -43,11 +39,11 @@ const {setShow2,setHide2,handleUse} = useSwitch
      let user = user2;
      
                      setNewPassword2(newPassword2 =>[ ...newPassword2,{user,password}])
-             handleUser()       
+                     handelUser();
+                     
                    }
    
-    
-    
+   
     useEffect(()=>{
     localStorage.setItem('password',JSON.stringify(newPassword)); 
     localStorage.setItem('password2',JSON.stringify(newPassword2))
@@ -67,7 +63,7 @@ const {setShow2,setHide2,handleUse} = useSwitch
     // main section
     const getData = () => {
         const data = JSON.parse(localStorage.getItem('data'));
-        if(data){ return data} else { return []}
+        if(data){ return data} else { return ['nura']}
       }
       
       
@@ -79,18 +75,13 @@ const {setShow2,setHide2,handleUse} = useSwitch
      }
      
       function handlePost(){
-        handleSetPost();
         if(post){
-          setPosts([post,...posts]);
-          
+          setPosts([...posts,post]);
       }else{
         setPost('');
       }
-      handelNewPost(post);handleSetPost();
+      handelNewPost(post);
      }
-     const handleSetPost = () => {
-      setPost('');
-    }
      const [newPost,setNewPost] =useState('');
      const handelNewPost = (newPost) => {
        setNewPost(()=>
@@ -99,16 +90,6 @@ const {setShow2,setHide2,handleUse} = useSwitch
          </div>
        )
      }
-     const handleUser = () => {
-   
-      if((localStorage.getItem('password2')).includes(password) && 
-      (localStorage.getItem('password2')).includes(user))
-      {
-       setShow2('showClass'),setHide2('showClass'),alert(user + password+''+'is available')
-      } else {
-        alert(user +''+password+ 'is not available')
-     } 
-    }
       
       const handleDelete = (index) => {
             setPosts(posts.filter((_,i)=> i !== index));
@@ -117,18 +98,15 @@ const {setShow2,setHide2,handleUse} = useSwitch
         alert(`am a ${name}`)
        } 
        
-       // to store data
-       useEffect(()=>{
-           localStorage.setItem('data',JSON.stringify(posts));
-      },[posts]);
+       
     return(
 
         <DataContext.Provider value={{
             posts, setPosts, handleDelete, handlePost,handlePost2,
             user,user2, setUser,setUser2,password,
-            password2,setPassword2,show,hide,setShow,
+            password2,setPassword2,
             setNewPassword2,newPassword2,newPassword,
-            setNewPassword,setPassword,handlePassword,post,
+            setNewPassword,setPassword,handlePassword,
             handlePassword2,handleChange2,value,handleValue,newPost,
         }}>
             {children}

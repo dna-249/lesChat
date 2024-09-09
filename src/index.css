@@ -25,10 +25,10 @@ body,#root{
   display: block;
 }
 
-#hide{
+.hide{
   display: none;
 }
-#show{
+.show{
   display: block;
 }
 
@@ -194,7 +194,8 @@ body,#root{
   padding-top: 50px;
   position: absolute;
   margin-top: 100px;
-  
+  overflow-y: scroll;
+
   
 }
 .name2{
@@ -241,7 +242,6 @@ body,#root{
   display: flex;
   justify-content: left;
   align-items: center;
-  
 }
 
 .chat{
@@ -254,4 +254,6 @@ body,#root{
   align-content: center;
   margin: 5px;
   color: green;
+  
+
 }

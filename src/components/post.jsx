@@ -13,7 +13,7 @@ export const Post = () => {
          <div> <textarea value={post} className='username' type="text"  placeholder='write your post...' cols={100} rows={10} onChange={(e) =>handlePost2(e)} />
           <button className="button" onClick={handlePost}>post</button></div>
              {posts?.map((post,index)=>
-              <div className="container-post"  style={{display:'none'}}key={index}>
+              <div className="container-post"  style={{display:''}}key={index}>
                <div className="post3" onClick={()=>handleDelete(index)} > <button className="" >delete </button>
                      {newPost}        {post}</div>
                 </div>)}
