@@ -53,10 +53,7 @@ import useControl from "../components/useControl";
     
     
      // to store data
-     useEffect(()=>{
-         localStorage.setItem('data',JSON.stringify(posts));
-         
-    },[]);
+      
   
 
 
@@ -97,8 +94,11 @@ import useControl from "../components/useControl";
       const handleChange2 = (name) => {
         alert(`am a ${name}`)
        } 
-       
-       
+       useEffect(()=>{
+         localStorage.setItem('data',JSON.stringify(posts));
+         
+    },[posts]);
+      
     return(
 
         <DataContext.Provider value={{
